@@ -1,0 +1,21 @@
+{
+  "name": "oauth-server",
+  "version": "1.0.0",
+  "description": "Minimal OAuth 2.0 Authorization Server (JWT)",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "bcrypt": "^5.1.1",
+    "crypto": "^1.0.1",
+    "better-sqlite3": "^9.4.3",
+    "dotenv": "^16.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
