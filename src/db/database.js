@@ -113,7 +113,7 @@ function seedDemoData() {
   if (row && row.n > 0) return;
 
   prepare(`INSERT INTO clients (client_id, client_secret, name, redirect_uris, allowed_scopes) VALUES (?, ?, ?, ?, ?)`)
-    .run('demo-client', bcrypt.hashSync('demo-client-secret', 10), 'Demo Application', JSON.stringify(['http://localhost:4000/callback']), 'read:profile write:posts');
+    .run('demo-client', bcrypt.hashSync('demo-client-secret', 10), 'Demo Application', JSON.stringify(['http://localhost:3000/callback']), 'read:profile write:posts');
 
   prepare(`INSERT INTO users (email, password_hash, name) VALUES (?, ?, ?)`)
     .run('alice@example.com', bcrypt.hashSync('password123', 10), 'Alice');

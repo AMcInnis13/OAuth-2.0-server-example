@@ -10,10 +10,12 @@ app.use('/api', express.json());
 const authorizeRouter = require('./routes/authorize');
 const tokenRouter     = require('./routes/token');
 const resourceRouter  = require('./routes/resources');
+const callbackRouter  = require('./routes/callback');
 
 app.use('/authorize', authorizeRouter);
 app.use('/token',     tokenRouter);
 app.use('/api',       resourceRouter);
+app.use('/callback',  callbackRouter);
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
@@ -36,7 +38,7 @@ initializeDb().then(() => {
     console.log('  user password: password123');
     console.log('');
     console.log('Start the flow:');
-    console.log(`  http://localhost:${PORT}/authorize?client_id=demo-client&redirect_uri=http://localhost:4000/callback&response_type=code&scope=read:profile&state=xyz123`);
+    console.log(`  http://localhost:${PORT}/authorize?client_id=demo-client&redirect_uri=http://localhost:${PORT}/callback&response_type=code&scope=read:profile&state=xyz123`);
   });
 }).catch(err => {
   console.error('Failed to initialize database:', err);
